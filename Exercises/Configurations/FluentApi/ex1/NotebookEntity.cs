@@ -1,4 +1,4 @@
-namespace EfPractice.Exercises.Configurations.ex1FluentApi;
+namespace EfPractice.Exercises.Configurations.FluentApi.ex1;
 
 public class NotebookEntity
 {
