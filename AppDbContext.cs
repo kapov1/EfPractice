@@ -1,5 +1,3 @@
-using EfPractice.Exercises.Configurations.FluentApi.ex2;
-
 namespace EfPractice;
 
 public class AppDbContext(

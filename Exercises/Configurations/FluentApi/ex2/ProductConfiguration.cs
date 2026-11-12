@@ -15,7 +15,6 @@ public class ProductConfiguration : IEntityTypeConfiguration<ProductEntity>
         builder.Property(p => p.Sku)
             .HasColumnName("sku")
             .HasMaxLength(32)
-            .UseIdentityColumn()
             .IsRequired();
 
         builder.Property(p => p.Name)
@@ -29,7 +28,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<ProductEntity>
 
         builder.Property(p => p.Price)
             .HasColumnName("price")
-            .HasPrecision(10, 2)
+            .HasPrecision(12, 2)
             .IsRequired();
 
         builder.Property(p => p.StockQuantity)
@@ -43,6 +42,9 @@ public class ProductConfiguration : IEntityTypeConfiguration<ProductEntity>
         builder.Property(p => p.CreatedAt)
             .HasColumnName("created_at");
 
-        builder.HasIndex(p => p.Sku);
+        builder.HasIndex(p => p.Sku)
+            .IsUnique();
+
+        builder.HasIndex(p => p.Name);
     }        
 }
