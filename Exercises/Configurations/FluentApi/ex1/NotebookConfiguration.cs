@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace EfPractice.Exercises.Configurations.FluentApi.ex1;
 
 public class NotebookConfiguration : IEntityTypeConfiguration<NotebookEntity>
