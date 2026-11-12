@@ -17,11 +17,10 @@ public class NoteBookConfiguration : IEntityTypeConfiguration<NotebookEntity>
         builder.Property(n => n.Name)
             .HasMaxLength(80)
             .IsRequired()
-            .HasColumnName("name");
+            .HasColumnName("notebook_name");
 
         builder.Property(n => n.Description)
             .HasMaxLength(300)
-            .HasDefaultValue(null)
             .HasColumnName("description");
 
         builder.Property(n => n.CreatedAt)
