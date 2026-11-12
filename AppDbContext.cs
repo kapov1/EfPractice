@@ -3,7 +3,7 @@ using EfPractice.Exercises.Configurations.ex1FluentApi;
 namespace EfPractice;
 
 public class AppDbContext(
-    DbContextOptions options)
+    DbContextOptions<AppDbContext> options)
     : DbContext(options)
 {
     public DbSet<NotebookEntity> Notebooks => Set<NotebookEntity>();

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfPractice.Exercises.Configurations.ex1FluentApi;
 
-public class NoteBookConfiguration : IEntityTypeConfiguration<NotebookEntity>
+public class NotebookConfiguration : IEntityTypeConfiguration<NotebookEntity>
 {
     public void Configure(EntityTypeBuilder<NotebookEntity> builder)
     {
