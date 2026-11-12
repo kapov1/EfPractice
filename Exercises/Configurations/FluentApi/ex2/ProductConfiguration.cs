@@ -4,7 +4,11 @@ public class ProductConfiguration : IEntityTypeConfiguration<ProductEntity>
 {
     public void Configure(EntityTypeBuilder<ProductEntity> builder)
     {
-        builder.ToTable("products", "public");
+        builder.ToTable("products", "public", t =>
+        {   
+            t.HasCheckConstraint("ck_product_stock_quantity", "stock_quantity >= 0");
+            t.HasCheckConstraint("ck_product_price", "price >= 0");
+        });
 
         builder.HasKey(p => p.Id);
 
@@ -40,11 +44,14 @@ public class ProductConfiguration : IEntityTypeConfiguration<ProductEntity>
             .HasDefaultValue(true);
 
         builder.Property(p => p.CreatedAt)
-            .HasColumnName("created_at");
+            .HasColumnName("created_at")
+            .HasDefaultValueSql("now()");
 
         builder.HasIndex(p => p.Sku)
-            .IsUnique();
+            .IsUnique()
+            .HasDatabaseName("ix_product_sku");
 
-        builder.HasIndex(p => p.Name);
+        builder.HasIndex(p => p.Name)
+            .HasDatabaseName("ix_product_name");
     }        
 }
