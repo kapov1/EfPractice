@@ -1,3 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using EfPractice.Exercises.Configurations.FluentApi.ex1;
+using EfPractice.Exercises.Configurations.FluentApi.ex2;
+using EfPractice.Exercises.Configurations.KeyConfiguration.ex1.Entities;
+
+
 namespace EfPractice;
 
 public class AppDbContext(
@@ -6,7 +12,11 @@ public class AppDbContext(
 {
     public DbSet<NotebookEntity> Notebooks => Set<NotebookEntity>();
 
-    public DbSet<ProductEntity> Products => Set<ProductEntity>();
+    public DbSet<ProductEntity> ProductEntities => Set<ProductEntity>();
+
+    public DbSet<GroupMembership> GroupMemberships => Set<GroupMembership>();
+    public DbSet<Product> Products => Set<Product>();
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
