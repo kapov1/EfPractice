@@ -2,14 +2,8 @@ namespace EfPractice.Exercises.Configurations.KeyConfiguration.ex1.Entities;
 
 public class GroupMembership
 {
-    public GroupMembership(int userId, int groupId)
+    public GroupMembership(Guid userId, int groupId)
     {
-        if (userId < 0)
-        {
-            throw new ArgumentOutOfRangeException(
-                nameof(userId), 
-                "The user ID must starts with one");
-        }
         if (groupId <= 0)
         {
             throw new ArgumentOutOfRangeException(
@@ -21,7 +15,7 @@ public class GroupMembership
         GroupId = groupId;
     }
 
-    public int UserId { get; private set; }
+    public Guid UserId { get; private set; }
 
     public int GroupId { get; private set; }
 

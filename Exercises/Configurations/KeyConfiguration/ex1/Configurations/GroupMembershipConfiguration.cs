@@ -10,11 +10,10 @@ public class GroupMembershipConfiguration : IEntityTypeConfiguration<GroupMember
     {
         builder.ToTable("group_memberships", t =>
         {
-            t.HasCheckConstraint("ck_group_membership_user_id", "user_id > 0");
             t.HasCheckConstraint("ck_group_membership_id", "group_id > 0");
         });
 
-        builder.HasKey(g => new { g.GroupId, g.UserId });
+        builder.HasKey(g => new { g.UserId, g.GroupId });
 
         builder.Property(g => g.GroupId)
             .HasColumnName("group_id");
@@ -25,7 +24,7 @@ public class GroupMembershipConfiguration : IEntityTypeConfiguration<GroupMember
 
         builder.Property(g => g.JoinedAt)
             .HasColumnName("joined_at")
-            .IsRequired();
+            .HasDefaultValueSql("now()");
 
         builder.HasOne<User>()
             .WithMany()
