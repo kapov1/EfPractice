@@ -24,11 +24,7 @@ public class GroupMembershipConfiguration : IEntityTypeConfiguration<GroupMember
 
         builder.Property(g => g.JoinedAt)
             .HasColumnName("joined_at")
-            .HasDefaultValueSql("now()");
-
-        builder.HasOne<User>()
-            .WithMany()
-            .HasForeignKey(g => g.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .HasDefaultValueSql("now()")
+            .IsRequired();
     }
 }
