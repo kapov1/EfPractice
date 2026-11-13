@@ -2,7 +2,9 @@ namespace EfPractice.Exercises.Configurations.KeyConfiguration.ex1.Entities;
 
 public class Product
 {
-    public Product(string sku, string name)
+    public Product(
+        string sku, 
+        string name)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(sku);
         ArgumentException.ThrowIfNullOrWhiteSpace(name);

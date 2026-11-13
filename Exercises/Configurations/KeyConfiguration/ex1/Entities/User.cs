@@ -2,7 +2,9 @@ namespace EfPractice.Exercises.Configurations.KeyConfiguration.ex1.Entities;
 
 public class User
 {
-    public User(string email, string name)
+    public User(
+        string email,
+        string name)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
         ArgumentException.ThrowIfNullOrWhiteSpace(email);
