@@ -11,8 +11,11 @@ public class ArticleConfiguration : IEntityTypeConfiguration<Article>
         builder.HasKey(a => a.ArticleId);
 
         builder.Property(a => a.ArticleId)
-            .HasColumnName("arcitle_id")
+            .HasColumnName("article_id")
             .UseIdentityAlwaysColumn();
+
+        builder.Property(a => a.AuthorId)
+            .HasColumnName("author_id");
 
         builder.Property(a => a.Title)
             .HasColumnName("article_title")
