@@ -14,12 +14,9 @@ public class StudentConfiguration : IEntityTypeConfiguration<Student>
             .HasColumnName("student_id")
             .UseIdentityAlwaysColumn();
 
-        builder.Property(u => u.FullName)
+        builder.Property(s => s.FullName)
             .HasColumnName("full_name")
             .HasMaxLength(100)
             .IsRequired();
-
-        builder.Property(u => u.Courses)
-            .HasColumnName("student_courses");
     }
 }

@@ -27,8 +27,8 @@ public class StudentProfile
         if (bio is not null)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(
-                nameof(bio),
-                "The bio must not be white space.");
+                bio, 
+                nameof(bio));
 
             if (bio.Length > BioMaxLength)
             {

@@ -1,4 +1,3 @@
-using EfPractice.Exercises.Configurations.KeyConfiguration.ex1.Entities;
 using EfPractice.Exercises.Configurations.Relationships.ex1.Entities;
 
 namespace EfPractice.Exercises.Configurations.Relationships.ex1.Configurations;
@@ -7,6 +6,8 @@ public class StudentProfilesConfiguration : IEntityTypeConfiguration<StudentProf
 {
     public void Configure(EntityTypeBuilder<StudentProfile> builder)
     {
+        builder.ToTable("student_profiles");
+
         builder.HasKey(sp => sp.Id);
 
         builder.Property(sp => sp.Id)
@@ -21,7 +22,7 @@ public class StudentProfilesConfiguration : IEntityTypeConfiguration<StudentProf
             .HasColumnName("bio")
             .HasMaxLength(1000);
 
-        builder.HasOne<User>()
+        builder.HasOne<Student>()
             .WithOne()
             .HasForeignKey<StudentProfile>(sp => sp.StudentId)
             .OnDelete(DeleteBehavior.Cascade);
