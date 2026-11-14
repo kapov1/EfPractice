@@ -1,6 +1,4 @@
 using EfPractice.Exercises.Configurations.KeyConfiguration.ex1.Entities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfPractice.Exercises.Configurations.KeyConfiguration.ex1.Configurations;
 

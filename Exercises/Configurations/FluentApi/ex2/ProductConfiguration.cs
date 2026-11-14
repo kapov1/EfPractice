@@ -1,6 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace EfPractice.Exercises.Configurations.FluentApi.ex2;
 
 public class ProductConfiguration : IEntityTypeConfiguration<ProductEntity>
