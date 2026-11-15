@@ -1,10 +1,10 @@
-namespace EfPractice.Exercises.Configurations.Relationships.ex1.Entities;
+namespace EfPractice.OnlineStore.Entities;
 
-public class Instructor
-{
+public class Customer
+{   
     private const int NameMaxLength = 100;
 
-    public Instructor(string name)
+    public Customer(string name)
     {
         Validate(name);
 
@@ -16,17 +16,15 @@ public class Instructor
 
     private static void Validate(string name)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(
-            name, 
-            nameof(name));
-
+        ArgumentException.ThrowIfNullOrWhiteSpace(name, nameof(name));
         if (name.Length > NameMaxLength)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(name), 
-                $"Maximum length is {NameMaxLength} characters.");
+                name,
+                $"Maximun length is {NameMaxLength} characters.");
         }
     }
 
-    private Instructor() { }
+    private Customer() { }
 }
