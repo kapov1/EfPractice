@@ -6,7 +6,7 @@ public class StudentProfilesConfiguration : IEntityTypeConfiguration<StudentProf
 {
     public void Configure(EntityTypeBuilder<StudentProfile> builder)
     {
-        builder.ToTable("student_profiles");
+        builder.ToTable("student_profiles", "public");
 
         builder.HasKey(sp => sp.Id);
 
