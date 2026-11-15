@@ -24,12 +24,8 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .ValueGeneratedOnAdd();
 
         builder.HasOne(o => o.Customer)
-            .WithMany()
+            .WithMany(c => c.Orders)
             .HasForeignKey(o => o.CustomerId)
             .OnDelete(DeleteBehavior.Restrict); // because the order maybe active
-
-        builder.HasMany(o => o.Items)
-            .WithOne(oi => oi.Order)
-            .HasForeignKey(oi => oi.OrderId);
     }
 }

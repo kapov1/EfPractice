@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Razor.Hosting;
-
 namespace EfPractice.OnlineStore.Entities;
 
 public class Order

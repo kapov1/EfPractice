@@ -6,7 +6,7 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
 {
     public void Configure(EntityTypeBuilder<Category> builder)
     {
-        builder.ToTable("catigories", "public");
+        builder.ToTable("categories", "public");
 
         builder.HasKey(c => c.Id);
 
