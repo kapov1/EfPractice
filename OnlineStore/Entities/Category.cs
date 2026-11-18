@@ -17,7 +17,7 @@ public class Category
     public string Name { get; private set; } = string.Empty;
     public IReadOnlyCollection<Product> Products =>_products.AsReadOnly();
 
-    public void AddOrderOrThrow(Product product)
+    public void AddProductOrThrow(Product product)
     {
         if (Contains(product))
         {
@@ -27,7 +27,7 @@ public class Category
         _products.Add(product);
     }
 
-    public void RemoveOrderOrThrow(Product product)
+    public void RemoveProductOrThrow(Product product)
     {
         if (!Contains(product))
         {
@@ -39,7 +39,12 @@ public class Category
 
     private bool Contains(Product product)
     {
-        return _products.Any(p => p.Id == product.Id);
+        if (product.Id != 0)
+        {
+            return _products.Any(p => p.Id == product.Id);
+        }
+
+        return _products.Any(p => ReferenceEquals(p, product));
     }
 
     private static void Validate(string name)
@@ -55,5 +60,5 @@ public class Category
         }
     }
 
-    private Category() { }
+    private Category() { } 
 }
