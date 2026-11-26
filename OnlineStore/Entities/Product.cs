@@ -15,7 +15,22 @@ public class Product
     public int Id { get; private set; }
     public string Name { get; private set; } = string.Empty;
     public int CategoryId { get; private set; }
-    public Category? Category { get; private set; }
+    public Category Category { get; private set; } = null!;
+
+    public void ChangeName(string name)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name, nameof(name));
+
+        if (name.Length > NameMaxLength)
+        {
+            throw new ArgumentOutOfRangeException(
+                nameof(name), 
+                name,
+                $"Max length is {NameMaxLength} characters.");
+        }
+
+        Name = name;
+    }
 
     private static void Validate(string name, int categoryId)
     {

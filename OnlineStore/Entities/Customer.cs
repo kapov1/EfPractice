@@ -1,7 +1,7 @@
 namespace EfPractice.OnlineStore.Entities;
 
 public class Customer
-{   
+{
     private const int NameMaxLength = 100;
 
     private readonly List<Order> _orders = [];
@@ -37,6 +37,13 @@ public class Customer
         _orders.Remove(order);
     }
 
+    public void ChangeName(string name)
+    {
+        Validate(name);
+
+        Name = name;
+    }
+
     private bool Contains(Order order)
     {
         return _orders.Any(o => o.Id == order.Id);
@@ -48,7 +55,7 @@ public class Customer
         if (name.Length > NameMaxLength)
         {
             throw new ArgumentOutOfRangeException(
-                nameof(name), 
+                nameof(name),
                 name,
                 $"Maximun length is {NameMaxLength} characters.");
         }

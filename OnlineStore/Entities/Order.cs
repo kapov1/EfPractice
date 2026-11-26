@@ -14,7 +14,7 @@ public class Order
     public int Id { get; private set; }
     public int CustomerId { get; private set; }
     public DateTimeOffset? CreatedAt { get; private set; }
-    public Customer? Customer { get; private set; }
+    public Customer Customer { get; private set; } = null!;
     public IReadOnlyCollection<OrderItem> Items => _items.AsReadOnly();
 
     public void AddItemOrThrow(OrderItem item)
@@ -47,7 +47,7 @@ public class Order
         if (customerId <= 0)
         {
             throw new ArgumentOutOfRangeException(
-                nameof(customerId), 
+                nameof(customerId),
                 customerId,
                 "The customer ID must be positive.");
         }

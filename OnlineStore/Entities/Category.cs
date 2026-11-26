@@ -15,7 +15,7 @@ public class Category
 
     public int Id { get; private set; }
     public string Name { get; private set; } = string.Empty;
-    public IReadOnlyCollection<Product> Products =>_products.AsReadOnly();
+    public IReadOnlyCollection<Product> Products => _products.AsReadOnly();
 
     public void AddProductOrThrow(Product product)
     {
@@ -54,11 +54,11 @@ public class Category
         if (name.Length > MaxNameLength)
         {
             throw new ArgumentOutOfRangeException(
-                nameof(name), 
+                nameof(name),
                 name,
                 $"Max length is {MaxNameLength} characters.");
         }
     }
 
-    private Category() { } 
+    private Category() { }
 }
